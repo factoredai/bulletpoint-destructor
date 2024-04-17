@@ -7,7 +7,7 @@ from tqdm import tqdm
 
 from src.modeling.bullet_descriptiors import SYSTEM_MESSAGE
 
-client = OpenAI()
+client = OpenAI(api_key='s')
 
 
 def build_chat_messages(bullet_point: str) -> List[Dict[str, str]]:
@@ -17,14 +17,15 @@ def build_chat_messages(bullet_point: str) -> List[Dict[str, str]]:
     ]
 
 
-def extract_entities(bullet_point: str) -> Dict[str, str]:
+def extract_entities(bullet_point: str, model: str = 'gpt-3.5-turbo-0125') -> Dict[str, str]:
+
 
     messages = build_chat_messages(
         bullet_point=bullet_point,
     )
 
     response = client.chat.completions.create(
-        model="gpt-3.5-turbo-0125",
+        model=model,
         response_format={"type": "json_object"},
         messages=messages,
     )
