@@ -7,7 +7,7 @@ from tqdm import tqdm
 
 from src.modeling.bullet_descriptiors import SYSTEM_MESSAGE
 
-client = OpenAI(api_key='s')
+client = OpenAI()
 
 
 def build_chat_messages(bullet_point: str) -> List[Dict[str, str]]:
