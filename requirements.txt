@@ -5,4 +5,4 @@ sacrebleu
 matplotlib
 fastapi
 uvicorn[standard]
-
+streamlit
