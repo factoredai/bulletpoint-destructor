@@ -4,4 +4,8 @@ venv:
 
 .PHONY: api
 api:
-	python -m src.app.main
+	python -m src.app.backend.main
+
+.PHONY: frontend
+frontend:
+	python -m streamlit run src/app/frontend/streamlit_app.py
